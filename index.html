@@ -157,22 +157,22 @@
           s = "";
         }
       } else {
-        if (k === "=" && !op.includes(ch)) {
-          s = "";
-          k = "";
-        } else if (k === "=" && op.includes(ch)) {
-          s = ipr.value + ch;
-          ipr.value = s;
-          k = "";
-          return;
+            if (k === "=" && !op.includes(ch)) {
+            s = "";
+            k = "";
+            } else if (k === "=" && op.includes(ch)) {
+            s = ipr.value + ch;
+            ipr.value = s;
+            k = "";
+            return;
+            }
+
+            // Avoid double operators
+            if (op.includes(ch) && op.includes(s.slice(-1))) return;
+
+            s += ch;
+            ipr.value = s;
         }
-
-        // Avoid double operators
-        if (op.includes(ch) && op.includes(s.slice(-1))) return;
-
-        s += ch;
-        ipr.value = s;
-      }
     }
   </script>
 </body>
